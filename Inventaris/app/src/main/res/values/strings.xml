@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">PDM Pekalongan</string>
+    <string name="hint_password">PASSWORD</string>
+    <string name="login">Login</string>
+    <string name="lbl_create_account">Belum punya akun?Hubungi PDM</string>
+    <string name="hint_id">KODE DAFTAR</string>
+    <string name="selamat">Selamat Datang dan \n selamat pagi</string>
+    <string name="profile">Profil</string>
+    <string name="setting">Ubah Informasi Akun</string>
+    <string name="laporan">Laporan</string>
+    <string name="desc_lap">Cek laporan anda</string>
+    <string name="tambah_lap">Tambah Lap</string>
+    <string name="desc_insert_lap">Masukan Laporan Asset Anda</string>
+    <string name="nama_asset">Nama Asset</string>
+    <string name="jml_asset">Jumlah Asset</string>
+    <string name="jml_alamat">Alamat</string>
+    <string name="nama">Nama</string>
+    <string name="id">Kode Daftar</string>
+    <string name="cari">Cari...</string>
+    <string name="email">Email</string>
+    <string name="asset">Nama Asset</string>
+    <string name="titik_dua">:</string>
+    <string name="jns">Jenis Asset</string>
+    <string name="status">Status</string>
+</resources>
