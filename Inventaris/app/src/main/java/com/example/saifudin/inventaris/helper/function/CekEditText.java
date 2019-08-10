@@ -1,4 +1,4 @@
-package com.example.saifudin.inventaris.helper;
+package com.example.saifudin.inventaris.helper.function;
 
 import android.support.design.widget.TextInputEditText;
 import android.text.TextUtils;

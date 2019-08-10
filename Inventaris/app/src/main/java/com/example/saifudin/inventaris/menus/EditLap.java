@@ -8,6 +8,8 @@ import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
@@ -29,7 +31,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 import static com.example.saifudin.inventaris.constan.Koneksi.SUCCESS;
-import static com.example.saifudin.inventaris.helper.CekEditText.editText;
+import static com.example.saifudin.inventaris.helper.function.CekEditText.editText;
 
 public class EditLap extends AppCompatActivity {
 
@@ -57,6 +59,19 @@ public class EditLap extends AppCompatActivity {
     TextView txtJudul;
     LaporanItem data;
     int jns;
+    @BindView(R.id.cb_t_wakaf)
+    CheckBox cbTWakaf;
+    @BindView(R.id.cb_t_hak_milik)
+    CheckBox cbTHakMilik;
+    @BindView(R.id.cb_t_SHM)
+    CheckBox cbTSHM;
+    @BindView(R.id.cb_bangunan)
+    CheckBox cbBangunan;
+    @BindView(R.id.cb_lain_lain)
+    CheckBox cbLainLain;
+    @BindView(R.id.image)
+    ImageView image;
+    String kategori = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,6 +106,41 @@ public class EditLap extends AppCompatActivity {
                 }
             }
         });
+
+        cbBangunan.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) kategori += "Bangunan, ";
+            }
+        });
+
+        cbTHakMilik.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) kategori += "Tanah Milik, ";
+            }
+        });
+
+        cbLainLain.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) kategori += "Lain-Lain, ";
+            }
+        });
+
+        cbTWakaf.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) kategori += "Tanah Wakaf, ";
+            }
+        });
+
+        cbTSHM.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) kategori += "TSHM, ";
+            }
+        });
     }
 
     @OnClick({R.id.ic_close, R.id.btn_simpan})
@@ -104,18 +154,18 @@ public class EditLap extends AppCompatActivity {
                 if (editText(inputJml, "Jumlah Kosong")) return;
                 if (editText(inputJml) && editText(inputNama)) {
                     update(data.getKodeDaftar(), inputNama.getText().toString(), jns,
-                            inputJml.getText().toString(), data.getStatus(), data.getTanggal(), data.getId());
+                            inputJml.getText().toString(), data.getStatus(), data.getTanggal(), data.getId(), kategori);
                 }
                 break;
         }
     }
 
-    private void update(String kode, String nama, int jenis, String jumlah, String status, String tanggal, String id) {
+    private void update(String kode, String nama, int jenis, String jumlah, String status, String tanggal, String id, String kategori) {
         final ProgressDialog dialog = new ProgressDialog(this);
         dialog.setMessage("Tunggu Sebentar...");
 
         ApiService service = RetroClient.getApiService();
-        Call<ResponseInput> call = service.updateLap(id, kode, nama, jenis, jumlah, status, tanggal);
+        Call<ResponseInput> call = service.updateLap(id, kode, nama, jenis, jumlah, status, tanggal, kategori);
         dialog.show();
         call.enqueue(new Callback<ResponseInput>() {
             @Override

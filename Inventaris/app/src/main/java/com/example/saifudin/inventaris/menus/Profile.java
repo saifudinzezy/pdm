@@ -29,8 +29,7 @@ import static com.example.saifudin.inventaris.constan.Logins.ID;
 import static com.example.saifudin.inventaris.constan.Logins.KODE;
 import static com.example.saifudin.inventaris.constan.Logins.NAMA;
 import static com.example.saifudin.inventaris.constan.Logins.PASSWORD;
-import static com.example.saifudin.inventaris.helper.CekEditText.editText;
-import static com.example.saifudin.inventaris.helper.ConvertDate.tglHariIni;
+import static com.example.saifudin.inventaris.helper.function.CekEditText.editText;
 
 public class Profile extends AppCompatActivity {
 

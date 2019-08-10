@@ -19,7 +19,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-import static com.example.saifudin.inventaris.helper.ConvertDate.ubahTanggal2;
+import static com.example.saifudin.inventaris.helper.date.ConvertDate.ubahTanggal2;
 
 public class LaporanAdapter extends RecyclerView.Adapter<LaporanAdapter.ViewHolder> {
     private Context context;
@@ -59,6 +59,7 @@ public class LaporanAdapter extends RecyclerView.Adapter<LaporanAdapter.ViewHold
         viewHolder.txtTanggal.setText(ubahTanggal2(list.get(position).getTanggal()));
         viewHolder.txtJenis.setText(list.get(position).getJenisAsset());
         viewHolder.txtStatus.setText(list.get(position).getStatus());
+        viewHolder.txtKategori.setText(list.get(position).getKategori());
         viewHolder.menus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -110,6 +111,8 @@ public class LaporanAdapter extends RecyclerView.Adapter<LaporanAdapter.ViewHold
         CardView cv;
         @BindView(R.id.menus)
         ImageView menus;
+        @BindView(R.id.txt_kategori)
+        TextView txtKategori;
 
         public ViewHolder(View itemView) {
             super(itemView);

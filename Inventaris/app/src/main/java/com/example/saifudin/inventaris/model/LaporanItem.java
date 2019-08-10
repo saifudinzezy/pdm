@@ -28,6 +28,28 @@ public class LaporanItem implements Parcelable {
 	@SerializedName("status")
 	private String status;
 
+	@SerializedName("kategori")
+	private String kategori;
+
+	@SerializedName("foto")
+	private String foto;
+
+	public String getKategori() {
+		return kategori;
+	}
+
+	public void setKategori(String kategori) {
+		this.kategori = kategori;
+	}
+
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
+
 	public void setKodeDaftar(String kodeDaftar){
 		this.kodeDaftar = kodeDaftar;
 	}
@@ -98,6 +120,9 @@ public class LaporanItem implements Parcelable {
 			"}";
 		}
 
+	public LaporanItem() {
+	}
+
 	@Override
 	public int describeContents() {
 		return 0;
@@ -112,9 +137,8 @@ public class LaporanItem implements Parcelable {
 		dest.writeString(this.id);
 		dest.writeString(this.tanggal);
 		dest.writeString(this.status);
-	}
-
-	public LaporanItem() {
+		dest.writeString(this.kategori);
+		dest.writeString(this.foto);
 	}
 
 	protected LaporanItem(Parcel in) {
@@ -125,9 +149,11 @@ public class LaporanItem implements Parcelable {
 		this.id = in.readString();
 		this.tanggal = in.readString();
 		this.status = in.readString();
+		this.kategori = in.readString();
+		this.foto = in.readString();
 	}
 
-	public static final Parcelable.Creator<LaporanItem> CREATOR = new Parcelable.Creator<LaporanItem>() {
+	public static final Creator<LaporanItem> CREATOR = new Creator<LaporanItem>() {
 		@Override
 		public LaporanItem createFromParcel(Parcel source) {
 			return new LaporanItem(source);

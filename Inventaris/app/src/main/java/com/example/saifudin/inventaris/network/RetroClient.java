@@ -12,7 +12,7 @@ public class RetroClient {
             //maka buat object dari retrofit
             retrofit = new Retrofit.Builder()
                     //ubah sesuai urlnya
-                    .baseUrl("http://pdm.codingyuk.site/api/")
+                    .baseUrl("http://pdm.codingyuk.site/")
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
         }

@@ -52,7 +52,8 @@
         android:id="@+id/ns"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/value_16dp"
+        android:layout_marginLeft="@dimen/value_16dp"
+        android:layout_marginRight="@dimen/value_16dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/btn_simpan"
         app:layout_constraintEnd_toEndOf="parent"
@@ -103,23 +104,87 @@
 
                 <RadioGroup
                     android:id="@+id/rg"
-                    android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
                     <RadioButton
                         android:id="@+id/rb_bergerak"
-                        android:text="Bergrak"
-                        android:checked="true"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="Bergrak" />
 
                     <RadioButton
                         android:id="@+id/rb_tdk_bergrak"
-                        android:text="Tidak Bergrak"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:text="Tidak Bergrak" />
                 </RadioGroup>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_margin"
+                android:background="@drawable/bg_input_layout_form"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kategori Asset"
+                    android:textColor="@android:color/black"
+                    app:hintTextAppearance="@style/TextAppearance.App.TextInputLayout"
+                    tools:ignore="MissingPrefix" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/cb_t_wakaf"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:text="Tanah Wakaf"
+                        android:textSize="12sp" />
+
+                    <CheckBox
+                        android:id="@+id/cb_t_hak_milik"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tanah Hak Milik"
+                        android:textSize="12sp" />
+
+                    <CheckBox
+                        android:id="@+id/cb_t_SHM"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tanah SHM"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/cb_bangunan"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:text="Bangunan"
+                        android:textSize="12sp" />
+
+                    <CheckBox
+                        android:id="@+id/cb_lain_lain"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Lain-Lain"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
 
             </LinearLayout>
 
@@ -138,12 +203,43 @@
                     android:layout_marginBottom="@dimen/activity_margin_half"
                     android:background="@null"
                     android:hint="@string/jml_asset"
-                    android:paddingLeft="@dimen/activity_margin_half"
                     android:inputType="number"
+                    android:paddingLeft="@dimen/activity_margin_half"
                     android:paddingRight="@dimen/activity_margin_half"
                     android:textCursorDrawable="@null" />
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/activity_margin_half"
+                    android:text="*Satuan Tanah m2" />
+
             </android.support.design.widget.TextInputLayout>
+
+            <LinearLayout
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_margin"
+                android:background="@drawable/bg_input_layout_form"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Upload Foto Sertifikat"
+                    android:textColor="@android:color/black"
+                    app:hintTextAppearance="@style/TextAppearance.App.TextInputLayout"
+                    tools:ignore="MissingPrefix" />
+
+                <ImageView
+                    android:id="@+id/image"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="@dimen/value_5dp"
+                    android:src="@drawable/diploma" />
+
+            </LinearLayout>
 
         </LinearLayout>
 
